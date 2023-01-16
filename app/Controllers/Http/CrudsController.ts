@@ -4,10 +4,24 @@ import TestUser from 'App/Models/TestUser'
 export default class CrudsController {
   public async index({response}: HttpContextContract) {
 
+    const checUser = await TestUser.find(1)
+    
+    if (checUser == null){
+      return response.notFound({
+        "message":"Request Not found"
+      })
+    }
+    
+    
+   
     try {
+
       const user = await TestUser.all()
-    console.log(user);
-    return 1
+      return response.ok(
+        {data: user}
+      )
+    
+
     } catch (error) {
       console.log(error);
       
@@ -49,30 +63,31 @@ export default class CrudsController {
             created: created.createdAt}
           })
     
-  //   try {
+    try {
       
   
-  //     const created = await TestUser.create({
-  //     name: inputName,
-  //     age: inputAge
+      const created = await TestUser.create({
+      name: inputName,
+      age: inputAge
     
-  //     })
-  //     return response.created({
-  //       message: 'User  Accepted',
-  //         data: {
-  //           id:created.id,
-  //           name: created.name,
-  //           age: created.age,
-  //           created: created.createdAt}
-  //         })
+      })
+      return response.created({
+        message: 'User  Accepted',
+          data: {
+            id:created.id,
+            name: created.name,
+            age: created.age,
+            created: created.createdAt}
+          })
     
-  // } catch (error) {
-  //   console.log(error);
+  } catch (error) {
+    console.log(error);
     
-  //   return response.badRequest({
-  //     "message":"Invalid request"
-  //   })
+    return response.badRequest({
+      "message":"Invalid request"
+    })
   }
+
  
   }
 
