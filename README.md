@@ -1,10 +1,10 @@
 # adonis-crud
 
 
-create controller with  resources <index, create, update ,destroy>
+# create controller with  resources <index, create, update ,destroy>
 
 
-install lucid
+# install lucid
   --npm i @adonisjs/lucid
   --node ace configure @adonisjs/lucid
   -- validate  environment  variables <env.ts>
@@ -22,15 +22,18 @@ install lucid
         PG_DB_NAME: Env.schema.string(),
       })
 
-create model with parameters
+# create model with parameters
 
-add adonis kvn response 
-node ace invoke adonis-kvn-response
+# create migration and rollback
 
 
-create the crud application
+# add adonis kvn response 
+  node ace invoke adonis-kvn-response
 
-create validators for user inputs
+
+# create the crud application
+
+# create validators for user inputs
 
 
 

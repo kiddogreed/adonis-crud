@@ -29,5 +29,6 @@ Route.get('/', async ({ view }) => {
 //   return { Message: 'Welcome to xyz corp. Parking lot' }
 // })
  Route.resource('api/v1','CrudsController').apiOnly()
+ //Route.get('api/v1','CrudsController.index')
 
 
